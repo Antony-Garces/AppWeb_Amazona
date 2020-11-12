@@ -5,64 +5,64 @@ import { Link } from 'react-router-dom'
 
 
 export default function ProductScreen(props) {
- const product = data.products.find(x => x._id === props.match.params.id)
- if(!product) {
+  const product = data.products.find(x => x._id === props.match.params.id)
+  if(!product) {
   return <div>Product not found</div>
- }
- return (
+  }
+  return (
   <div>
-   <Link to="/">Back to result</Link>
-   <div className="row top">
+    <Link to="/">Back to result</Link>
+    <div className="row top">
     <div className="col-2">
-     <img className="large" src={product.image}  alt={product.name}/>
+      <img className="large" src={product.image}  alt={product.name}/>
     </div>
     <div className="col-1">
-     <ul>
+      <ul>
       <li>
-       <h1>{product.name}</h1>
-       </li>
+        <h1>{product.name}</h1>
+        </li>
       <li>
-       <Rating
-       rating={product.rating}
-       numReviews={product.numReviews}
-       ></Rating>
+        <Rating
+        rating={product.rating}
+        numReviews={product.numReviews}
+        ></Rating>
       </li>
       <li>Price: {product.price}</li>
       <li>
-       Description: 
-       <p>{product.description}</p>
+        Description: 
+        <p>{product.description}</p>
       </li>
-     </ul>
+      </ul>
 
     </div>
     <div className="col-1">
-     <div className="card card-body">
+      <div className="card card-body">
       <ul>
-       <li>
+        <li>
         <div className="row">
-         <div>Price</div>
-         <div className="price">${product.price}</div>
+          <div>Price</div>
+          <div className="price">${product.price}</div>
         </div>
-       </li>
-       <li>
+        </li>
+        <li>
         <div className="row">
-         <div>Status</div>
-         <div>
+          <div>Status</div>
+          <div>
           {product.countInStock > 0 ? (
-           <span className="success">In Stock</span>
-           ) : (
-            <span className="error">Unavailable</span>
-           )}
-         </div>
+            <span className="success">In Stock</span>
+            ) : (
+            <span className="danger">Unavailable</span>
+            )}
+          </div>
         </div>
-       </li>
-       <li>
+        </li>
+        <li>
         <button className="primary block">Add to Cart</button>
-       </li>
+        </li>
       </ul>
       </div>
     </div>
-   </div>
+    </div>
   </div>
- )
+  )
 }
