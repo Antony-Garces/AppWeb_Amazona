@@ -1,4 +1,20 @@
+import bcrypt from 'bcryptjs';
+
 const data = {
+ users: [
+  {
+   name: 'Antony',
+   email: 'angarpas392@hotmail.com',
+   password: bcrypt.hashSync('1234', 8),
+   isAdmin: true,
+  },
+  {
+   name: 'Miguel',
+   email: 'angarpas392@hotmail.com',
+   password: bcrypt.hashSync('1234', 8),
+   isAdmin: true,
+  }
+ ],
  products: [
   {
    _id: '1',
