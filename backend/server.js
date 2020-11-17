@@ -1,10 +1,16 @@
 /* eslint-disable no-undef */
 import express from "express";
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 import productRouter from "./routers/productRouter.js";
 import useRouter from "./routers/userRauter.js";
 
+dotenv.config(); 
+
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
+
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/amazona', {
  userNewUrlParser: true,
  useUnifiedTopology: true,
